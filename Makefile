@@ -8,11 +8,11 @@ build/%: # build or rebuild a image
 
 run: run/$(SERVICE)
 run/%: # run a one-off command on a container
-	docker-compose run --rm $* /bin/sh -c "/bin/bash || /bin/sh"
+	docker-compose run --rm $* sh -c 'bash || sh'
 
 exec: exec/$(SERVICE)
 exec/%: # run a command in a running container
-	docker-compose exec $* /bin/sh -c "/bin/bash || /bin/sh"
+	docker-compose exec $* sh -c 'bash || sh'
 
 up: # create and start containers, networks, and volumes
 	docker-compose up -d
