@@ -1,6 +1,6 @@
 .ONESHELL:
 
-SERVICE := service
+SERVICE := helloworld
 
 build: build/$(SERVICE)
 build/%: # build or rebuild a image

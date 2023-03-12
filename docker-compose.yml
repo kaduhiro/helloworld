@@ -13,9 +13,9 @@ services:
   service:
     <<: *COMMON
     build: .
-    image: service:1
-    container_name: service
-    hostname: service
+    image: helloworld:1
+    container_name: helloworld
+    hostname: helloworld
     # ports:
     #   - 12345:12345
     # volumes:
