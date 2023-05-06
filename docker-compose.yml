@@ -10,7 +10,7 @@ networks:
     # external: true
 
 services:
-  service:
+  helloworld:
     <<: *COMMON
     build: .
     image: helloworld:1
