@@ -56,7 +56,7 @@ help: # list available targets and some
 	    function ltrim(s) { sub(/^[ \t\r\n]+/, "", s); return s; }
 	    function rtrim(s) { sub(/[ \t\r\n]+$$/, "", s); return s; }
 	    function trim(s)  { return rtrim(ltrim(s)); }
-	    $$1 ~ /^#+\s*\.TARGET$$/ { printf("  \033[2;37m%s:\033[m\n", trim($$2)); } /^\S+:/ {gsub(/%/, "<service>", $$1); gsub(/^[^#]+/, "", $$2); gsub(/^[# ]+/, "", $$2); if ($$2) printf "    \033[1m%-'$$len's\033[0m  %s\n", $$1, $$2;}' $(MAKEFILE_LIST)
+	    $$1 ~ /^#+\s*\.TARGET$$/ { target = trim($$2); printf("  \033[2;37m%s:\033[m\n", target); } /^\S+:/ {gsub(/%/, target == "docker" ? "[service]" : "**", $$1); gsub(/^[^#]+/, "", $$2); gsub(/^[# ]+/, "", $$2); if ($$2) printf "    \033[1m%-'$$len's\033[0m  %s\n", $$1, $$2;}' $(MAKEFILE_LIST)
 	  )"
 
 clean: # remove cache files from the working directory
