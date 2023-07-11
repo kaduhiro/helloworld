@@ -1,6 +1,6 @@
-ARG VERSION=latest
+ARG OS_VERSION=latest
 
-FROM alpine:${VERSION}
+FROM alpine:${OS_VERSION}
 LABEL maintainer="author <author@github.com>"
 
 RUN apk update \
