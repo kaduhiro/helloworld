@@ -17,6 +17,9 @@ services:
   [*] helloworld
 
 targets:
+  general:
+    help              list available targets and some
+    clean             remove cache files from the working directory
   docker:
     build/[service]   build or rebuild a image
     run/[service]     run a one-off command on a container
@@ -27,7 +30,4 @@ targets:
     down/[service]    stop and remove a container
     logs              view output from containers
     log/[service]     view output from a container
-  other:
-    help              list available targets and some
-    clean             remove cache files from the working directory
 ```
