@@ -1,6 +1,6 @@
 version: '3.8'
 
-x-var: &COMMON
+x-network: &NETWORK
   networks:
     internal:
 
@@ -11,11 +11,11 @@ networks:
 
 services:
   helloworld:
-    <<: *COMMON
     build: ../../build
     image: helloworld:1
     container_name: helloworld
     hostname: helloworld
+    <<: *NETWORK
     # ports:
     #   - 12345:12345
     # volumes:
