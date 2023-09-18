@@ -11,7 +11,9 @@ networks:
 
 services:
   helloworld:
-    build: ../../build
+    build:
+      context: ../..
+      dockerfile: build/alpine/Dockerfile
     image: helloworld:1
     container_name: helloworld
     hostname: helloworld

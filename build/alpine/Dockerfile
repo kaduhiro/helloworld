@@ -1,7 +1,7 @@
 ARG OS_VERSION=latest
 
-FROM alpine:${OS_VERSION}
-LABEL maintainer="author <author@github.com>"
+FROM alpine:$OS_VERSION
+LABEL maintainer="kaduhiro <github@kaduhiro.com>"
 
 RUN apk update \
     && apk add --no-cache tini tzdata
