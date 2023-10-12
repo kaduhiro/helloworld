@@ -79,10 +79,10 @@ down: $(ENV_FILE) # stop and remove containers, networks, images, and volumes
 down/%: $(ENV_FILE) # stop and remove a container
 	$(DOCKER_COMPOSE) rm -fsv $*
 
-logs: # view output from containers
+logs: $(ENV_FILE) # view output from containers
 	$(DOCKER_COMPOSE) logs -f
 
 log: log/$(SERVICE)
-log/%: # view output from a container
+log/%: $(ENV_FILE) # view output from a container
 	$(DOCKER_COMPOSE) logs -f $*
 
