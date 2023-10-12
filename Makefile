@@ -4,6 +4,9 @@ include .env .env.local
 
 ENV_FILE := .env.app
 
+$(ENV_FILE): .env .env.local
+	cat .env .env.local > $(ENV_FILE)
+
 DOCKER_COMPOSE := docker-compose -f deployments/$(ENVIRONMENT)/docker-compose.yml --env-file $(ENV_FILE)
 
 # ==================================================
@@ -11,10 +14,7 @@ DOCKER_COMPOSE := docker-compose -f deployments/$(ENVIRONMENT)/docker-compose.ym
 # ==================================================
 .PHONY: help clean
 
-$(ENV_FILE): .env .env.local
-	cat .env .env.local > $(ENV_FILE)
-
-help: # list available targets and some
+help: $(ENV_FILE) # list available targets and some
 	@len=$$(awk -F':' ' \
 		BEGIN {m = 0;} \
 		/^[^\s]+:/ { \
