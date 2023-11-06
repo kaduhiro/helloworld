@@ -28,4 +28,4 @@ services:
     environment:
       ENVIRONMENT: $ENVIRONMENT
     # entrypoint: tini --
-    # command: tail -f /dev/null
+    # command: sleep infinity
