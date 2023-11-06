@@ -21,7 +21,8 @@ services:
     # ports:
     #   - 12345:12345
     # volumes:
-    #   - .:/src
+    #   - ../..:/app
+    # working_dir: /app
     # restart: always
     # tty: true
     environment:
