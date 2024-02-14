@@ -17,7 +17,7 @@ services:
     image: helloworld:1
     container_name: helloworld
     hostname: helloworld
-    <<: *NETWORK
+    <<: [*NETWORK]
     # ports:
     #   - 12345:12345
     # volumes:
